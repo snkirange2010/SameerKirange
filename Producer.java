@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.concurrent.BlockingQueue;
 
 /**
@@ -35,7 +37,9 @@ public class Producer implements Runnable {
 				String currentLine;
 				int inputType = 0;
 
-				br = new BufferedReader(new FileReader("C:\\BTCTestNew\\GraphDS\\src\\input.txt"));
+				URL filePath = Producer.class.getResource("input.txt");
+				File f = new File(filePath.getFile());
+				br = new BufferedReader(new FileReader(f));
 				
 				while ((currentLine = br.readLine()) != null) {
 					System.out.println(currentLine);
